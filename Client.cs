@@ -2,10 +2,11 @@
 
 public class Client
 {
-	public string Name { get; private set; }
-	public string Surname { get; private set; }
-	public string CF { get; private set; }
-	public int Salary { get; private set; }
+	public string Name { get; set; }
+	public string Surname { get; set; }
+	public string CF { get; set; }
+	public int Salary { get; set; }
+
 	public Client(string name, string surname, string cf, int salary)
 	{
 		this.Name = name;
@@ -13,4 +14,5 @@ public class Client
 		this.CF = cf;
 		this.Salary = salary;
 	}
+
 }
