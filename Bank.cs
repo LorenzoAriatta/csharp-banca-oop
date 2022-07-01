@@ -13,8 +13,8 @@ public class Bank
 		clients = new List<Client>();
 		lendings = new List<Lending>();
 
-		Client user = new Client("lorenzo", "ariatta", "qwe123", 5000);
-		Client user2 = new Client("stefano", "calzoni", "qwe321", 5000);
+		Client user = new Client("lorenzo", "ariatta", "cf001", 5000);
+		Client user2 = new Client("stefano", "calzoni", "cf002", 5000);
 		clients.Add(user);
 		clients.Add(user2);
 
@@ -39,23 +39,25 @@ public class Bank
 			if (client.Name == name)
             {
 				Console.WriteLine($"Found! Client: {client.Name} {client.Surname}");
+				Thread.Sleep(2000);
             }
             else
             {
 				Console.WriteLine("Name not found!");
-				Thread.Sleep(1000);
+				Thread.Sleep(2000);
 				UI.Home();
             }
         }
 		return null;
     }
 
-    public List<Client> GetClients()
+	public void SaveClient(Client newClient)
     {
-        return clients;
-    }
+		clients.Add(newClient);
+		StampClientList();
+	}
 
-    public Client NewClient(List<Client> clients)
+    public Client NewClient()
     {
         Console.WriteLine("Insert your name: ");
 		string name = Console.ReadLine().ToLower();
@@ -71,27 +73,16 @@ public class Bank
 
 		Client newClient = new Client(name, surname, cf, salary);
 
-        Console.WriteLine("Please wait, we're saving your data....");
+		Console.WriteLine("Please wait, we're saving your data....");
 
-		foreach (Client client in clients)
-        {
-			if(client.CF == newClient.CF)
-            {
-                Console.WriteLine("Your data already exist!");
-				break;
-            }
-			else
-            {
-				clients.Add(newClient);
-			}
-        }
 		Thread.Sleep(3000);
 		Console.Clear();
         Console.WriteLine("Success!");
 
+		//UI.Home();
 
 		return newClient;
-    }
+	}
 
 	public void ModifyClient()
     {
@@ -118,7 +109,7 @@ public class Bank
 				Console.WriteLine("Insert your NEW salary: ");
 				int salary = Int32.Parse(Console.ReadLine());
 
-				Client modClient = new Client(name, surname, cf, salary);
+				Client modClient = new Client(name, surname, fiscalCode, salary);
 
 				clients.Add(modClient);
 			}
@@ -128,5 +119,4 @@ public class Bank
 			}
 		}
 	}
-
 }

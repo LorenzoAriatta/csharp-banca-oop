@@ -11,17 +11,20 @@ public class UI
     {
 		Bank bank = new Bank("Fineco Bank");
 
-		//bank.StampClientList();
+
+		Console.Clear();
+		bank.StampClientList();
 
 		Console.WriteLine($"Welcome in {bank.Name}");
 		Console.WriteLine();
 
 		Console.WriteLine("1. Search clients");
 		Console.WriteLine("2. Create clients");
-		Console.WriteLine("3. Add Lending");
-		Console.WriteLine("4. Search by Lending");
-		Console.WriteLine("5. Total lendings for client");
-		Console.WriteLine("6. How many installments remains");
+		Console.WriteLine("3. Modify data clients");
+		Console.WriteLine("4. Add Lending");
+		Console.WriteLine("5. Search by Lending");
+		Console.WriteLine("6. Total lendings for client");
+		Console.WriteLine("7. How many installments remains");
 
 		int choice = Int32.Parse(Console.ReadLine());
 
@@ -41,8 +44,14 @@ public class UI
         {
 			Console.Clear();
 
-			bank.NewClient(
-			bank.GetClients());
+			Client newClient = bank.NewClient();
+			bank.SaveClient(newClient);
+		}
+		else if (choice == 3)
+        {
+			Console.Clear();
+			
+			bank.ModifyClient();
         }
 
     }
