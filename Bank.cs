@@ -13,12 +13,20 @@ public class Bank
 		clients = new List<Client>();
 		lendings = new List<Lending>();
 
-		Client user = new Client("Lorenzo", "Ariatta", "qwe123", 5000);
-		Client user2 = new Client("Stefano", "Calzoni", "qwe321", 5000);
+		Client user = new Client("lorenzo", "ariatta", "qwe123", 5000);
+		Client user2 = new Client("stefano", "calzoni", "qwe321", 5000);
 		clients.Add(user);
 		clients.Add(user2);
 
 	}
+
+	public void StampClientList()
+    {
+		foreach (Client client in clients)
+        {
+            Console.WriteLine($"{client.Name} {client.Surname}");
+		}
+    }
 
 
 	internal Client SearchClient()

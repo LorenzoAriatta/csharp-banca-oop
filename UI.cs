@@ -11,6 +11,8 @@ public class UI
     {
 		Bank bank = new Bank("Fineco Bank");
 
+		//bank.StampClientList();
+
 		Console.WriteLine($"Welcome in {bank.Name}");
 		Console.WriteLine();
 
@@ -25,7 +27,7 @@ public class UI
 
 		if(choice < 1)
         {
-            Console.WriteLine("Wrong choise...");
+            Console.WriteLine("Wrong choice...");
 			Console.Clear();
 			Home();
         }
