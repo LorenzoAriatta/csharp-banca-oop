@@ -16,14 +16,16 @@ public class UI
 
 		Console.WriteLine($"Welcome in {bank.Name}");
 		Console.WriteLine();
+		DateTime today = DateTime.Now;
+		Console.WriteLine(today.ToString("D"));
+		Console.WriteLine();
 
 		Console.WriteLine("1. Search info clients");
 		Console.WriteLine("2. Create clients");
 		Console.WriteLine("3. Modify data clients");
 		Console.WriteLine("4. Add Lending");
 		Console.WriteLine("5. Search Lending");
-		Console.WriteLine("6. Total lendings for client");
-		Console.WriteLine("7. How many installments remains");
+		Console.WriteLine("6. How many installments remains");
 
 		int choice = Int32.Parse(Console.ReadLine());
 
