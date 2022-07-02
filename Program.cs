@@ -38,5 +38,5 @@ Bonus:
 visualizzare per ogni cliente, la situazione dei suoi prestiti in formato tabellare.*/
 
 
-
-UI.Home();
+UI start = new UI();
+start.Home();
