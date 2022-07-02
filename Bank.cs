@@ -21,7 +21,7 @@ public class Bank
 
 		Lending lending = new Lending(user, 50000, 20, DateOnly.Parse("13/07/2020"), DateOnly.Parse("13/07/2022"), 5050);
 		Lending lending2 = new Lending(user2, 500000, 10, DateOnly.Parse("20/05/2020"), DateOnly.Parse("20/05/2022"), 5151);
-		Lending lending3 = new Lending(user3, 500, 50, DateOnly.Parse("02/10/2020"), DateOnly.Parse("20/10/2022"), 5252);
+		Lending lending3 = new Lending(user3, 30000, 50, DateOnly.Parse("02/10/2020"), DateOnly.Parse("20/10/2022"), 5252);
 		lendings.Add(lending);
 		lendings.Add(lending2);
 		lendings.Add(lending3);
@@ -48,7 +48,7 @@ public class Bank
 			if (client.Name == name)
             {
 				notPresent = false;
-				Console.WriteLine($"Found client!");
+				Console.WriteLine($"Client found!");
 				Console.WriteLine($"Client: \nName: {client.Name} | Surname: {client.Surname}");
 				Console.WriteLine($"Info: \nFiscal Code:{client.CF} | Salary: {client.Salary} | Total lending request: {client.TotalLendings} ");
 
@@ -225,6 +225,8 @@ public class Bank
 		foreach (Lending lend in lendings)
 		{
 			Client lender = lend.GetClient();
+			DateTime currentDate = DateTime.Now;
+
 			if (lender.CF == cf)
 			{
 				notPresent = false;
