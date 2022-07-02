@@ -2,27 +2,26 @@
 
 public class UI
 {
-	
+	Bank bank = new Bank();
 	public UI()
 	{
 	}
 
-	public static void Home()
+	public void Home()
     {
-		Bank bank = new Bank("Fineco Bank");
-
+		//Bank bank = new Bank(bankName);
 
 		Console.Clear();
-		bank.StampClientList();
+		//bank.StampClientList();
 
 		Console.WriteLine($"Welcome in {bank.Name}");
 		Console.WriteLine();
 
-		Console.WriteLine("1. Search clients");
+		Console.WriteLine("1. Search info clients");
 		Console.WriteLine("2. Create clients");
 		Console.WriteLine("3. Modify data clients");
 		Console.WriteLine("4. Add Lending");
-		Console.WriteLine("5. Search by Lending");
+		Console.WriteLine("5. Search Lending");
 		Console.WriteLine("6. Total lendings for client");
 		Console.WriteLine("7. How many installments remains");
 
@@ -39,20 +38,37 @@ public class UI
 			Console.Clear();
 
 			bank.SearchClient();
-        }
+			Home();
+		}
 		else if(choice == 2)
         {
 			Console.Clear();
 
 			Client newClient = bank.NewClient();
 			bank.SaveClient(newClient);
+			Home();
 		}
 		else if (choice == 3)
         {
 			Console.Clear();
 			
 			bank.ModifyClient();
-        }
+			Home();
+		}
+		else if (choice == 4)
+		{
+			Console.Clear();
 
-    }
+			bank.NewLending();
+			Home();
+		}
+		else if (choice == 5)
+		{
+			Console.Clear();
+
+			bank.SearchLending();
+			Home();
+		}
+
+	}
 }
